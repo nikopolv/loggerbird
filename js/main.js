@@ -22,6 +22,10 @@ var pipeheight = 90;
 var pipewidth = 52;
 var pipes = new Array();
 
+var locationHistory = new Array();
+var lastLocation = 0;
+var dots = new Array();
+
 var replayclickable = false;
 
 //sounds
@@ -123,6 +127,7 @@ function startGame()
    var updaterate = 1000.0 / 60.0 ; //60 times a second
    loopGameloop = setInterval(gameloop, updaterate);
    loopPipeloop = setInterval(updatePipes, 1400);
+   loopChartloop = setInterval(updateHistory, 50);
 
    //jump from the start!
    playerJump();
@@ -133,8 +138,17 @@ function updatePlayer(player)
    //rotation
    rotation = Math.min((velocity / 10) * 90, 90);
 
+
    //apply rotation and position
    $(player).css({ rotate: rotation, top: position });
+
+   if(locationHistory.length < 100) {
+      locationHistory.push(position)
+   } else {
+      locationHistory.shift()
+      locationHistory.push(position)
+   }
+   lastLocation = position;
 }
 
 function gameloop() {
@@ -179,7 +193,10 @@ function gameloop() {
    //have they tried to escape through the ceiling? :o
    var ceiling = $("#ceiling");
    if(boxtop <= (ceiling.offset().top + ceiling.height()))
-      position = 0;
+   {
+      playerDead();
+      return;
+   }
 
    //we can't go any further without a pipe
    if(pipes[0] == null)
@@ -346,8 +363,10 @@ function playerDead()
    //destroy our gameloops
    clearInterval(loopGameloop);
    clearInterval(loopPipeloop);
+   clearInterval(loopChartloop);
    loopGameloop = null;
    loopPipeloop = null;
+   loopChartloop = null;
 
    //mobile browsers don't support buzz bindOnce event
    if(isIncompatible.any())
@@ -455,6 +474,53 @@ function updatePipes()
    var newpipe = $('<div class="pipe animated"><div class="pipe_upper" style="height: ' + topheight + 'px;"></div><div class="pipe_lower" style="height: ' + bottomheight + 'px;"></div></div>');
    $("#flyarea").append(newpipe);
    pipes.push(newpipe);
+}
+
+const canvas = document.querySelector('#canvas');
+
+const ctx = canvas.getContext('2d');
+
+
+function updateHistory()
+{
+   //Do any pipes need removal?
+   //$(".stroke").filter(function() { return $(this).position().left <= -100; }).remove()
+
+  /*console.log("updt")
+    var coordinates = new Array()
+    var i = 0;
+    locationHistory.forEach(element => {
+
+      var l = {
+         x: 100,
+         y: element
+      }
+      coordinates.push(l)
+    } );
+    
+    ctx.beginPath();
+    ctx.moveTo(coordinates[0].x, coordinates[0].y);
+    
+    for (let i = 1; i < coordinates.length; i++) {
+      ctx.lineTo(coordinates[i].x, coordinates[i].y);
+    }
+    
+    ctx.strokeStyle = 'red';
+    ctx.lineWidth = 1;
+    ctx.stroke();*/
+
+    //Do any pipes need removal?
+
+   //$(".dot").filter(function() { return $(this).position().left <= -100; }).remove()
+
+   //add a new pipe (top height + bottom height  + pipeheight == flyArea) and put it in our tracker
+   var loc = lastLocation; //add lower padding
+
+   var newdot = $('<div class="dot" style="top: ' + loc + 'px; left: -460px"></div>');
+   $("#flyarea").append(newdot);
+   console.log(newdot)
+   dots.push(newdot);
+  
 }
 
 var isIncompatible = {
