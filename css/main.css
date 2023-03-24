@@ -334,13 +334,20 @@ Screen - Game
 {
    position: absolute;
    top: 0;
+   font-size: 50px;
+   border: solid #333;
+   border-width: 0 2px 2px 2px;
    width: 52px;
-   background-image: url('../assets/pipe.png');
+   /*background-image: url('../assets/pipe.png');*/
+   background-color: #f34848;
    background-repeat: repeat-y;
    background-position: center;
+   display: flex;
+    justify-content: center;
+    align-items: flex-end;
 }
 
-.pipe_upper:after
+/*.pipe_upper:after
 {
    content: "";
    position: absolute;
@@ -348,19 +355,24 @@ Screen - Game
    width: 52px;
    height: 26px;
    background-image: url('../assets/pipe-down.png');
-}
+}*/
 
 .pipe_lower
 {
    position: absolute;
    bottom: 0;
+   font-size: 50px;
    width: 52px;
-   background-image: url('../assets/pipe.png');
+   border: solid #333;
+   border-width: 2px 2px 0 2px;
+   /*background-image: url('../assets/pipe.png');*/
+   background-color: #005cb1;
    background-repeat: repeat-y;
    background-position: center;
+    justify-content: center;
 }
 
-.pipe_lower:after
+/*.pipe_lower:after
 {
    content: "";
    position: absolute;
@@ -368,7 +380,7 @@ Screen - Game
    width: 52px;
    height: 26px;
    background-image: url('../assets/pipe-up.png');
-}
+}*/
 
 #footer
 {
@@ -403,7 +415,7 @@ Screen - Game
 .dot{
    width: 5px;
    height: 5px;
-   background-color: red;
+   background-color: rgb(0, 255, 30);
    position: absolute;
    z-index: 10;
    border-radius: 50%;
