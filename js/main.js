@@ -127,10 +127,15 @@ function startGame()
    var updaterate = 1000.0 / 60.0 ; //60 times a second
    loopGameloop = setInterval(gameloop, updaterate);
    loopPipeloop = setInterval(updatePipes, 1400);
-   loopChartloop = setInterval(updateHistory, 50);
+   loopChartloop = setInterval(updateHistory, 20);
 
    //jump from the start!
    playerJump();
+}
+
+function getRandomizedUpdateFrequence(low,high) {
+   var result = Math.random() * high
+   if( result > low) {return result} else { return low}
 }
 
 function updatePlayer(player)

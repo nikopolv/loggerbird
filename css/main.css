@@ -66,22 +66,42 @@
    100% { left: -100px; }
 }
 
+
 @-webkit-keyframes animDot {
    0% { left: 350px; }
    100% { left: -100px; }
 }
 @-moz-keyframes animDot {
    0% { left: 350px; }
-   100% { left: -650px; }
+   100% { left: -100px; }
 }
 @-o-keyframes animDot {
    0% { left: 350px; }
-   100% { left: -650px; }
+   100% { left: -100px; }
 }
 @keyframes animDot {
    0% { left: 350px; }
-   100% { left: -650px; }
+   100% { left: -100px; }
 }
+
+@media (max-width: 480px) {
+   @-webkit-keyframes animDot {
+      0% { left: 50px; }
+      100% { left: -100px; }
+   }
+   @-moz-keyframes animDot {
+      0% { left: 50px; }
+      100% { left: -100px; }
+   }
+   @-o-keyframes animDot {
+      0% { left: 50px; }
+      100% { left: -100px; }
+   }
+   @keyframes animDot {
+      0% { left: 50px; }
+      100% { left: -100px; }
+   }
+ }
 
 @-webkit-keyframes animCeiling {
    0% { background-position: 0px 0px; }
@@ -306,6 +326,12 @@ Screen - Game
    left: 360px;
    top: 200px;
 }
+@media (max-width: 480px) {
+   #player
+   {
+      left: 60px;
+   }
+ }
 
 .bird
 {
