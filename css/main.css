@@ -69,37 +69,57 @@
 
 @-webkit-keyframes animDot {
    0% { left: 350px; }
-   100% { left: -100px; }
+   100% { left: -650px; }
 }
 @-moz-keyframes animDot {
    0% { left: 350px; }
-   100% { left: -100px; }
+   100% { left: -650px; }
 }
 @-o-keyframes animDot {
    0% { left: 350px; }
-   100% { left: -100px; }
+   100% { left: -650px; }
 }
 @keyframes animDot {
    0% { left: 350px; }
-   100% { left: -100px; }
+   100% { left: -650px; }
 }
 
 @media (max-width: 480px) {
    @-webkit-keyframes animDot {
       0% { left: 50px; }
-      100% { left: -100px; }
+      100% { left: -950px; }
    }
    @-moz-keyframes animDot {
       0% { left: 50px; }
-      100% { left: -100px; }
+      100% { left: -950px; }
    }
    @-o-keyframes animDot {
       0% { left: 50px; }
-      100% { left: -100px; }
+      100% { left: -950px; }
    }
    @keyframes animDot {
       0% { left: 50px; }
-      100% { left: -100px; }
+      100% { left: -950px; }
+   }
+ }
+
+
+ @media screen and (max-width: 768px) and (min-width: 480px) {
+   @-webkit-keyframes animDot {
+      0% { left: 100px; }
+      100% { left: -900px; }
+   }
+   @-moz-keyframes animDot {
+      0% { left: 100px; }
+      100% { left: -900px; }
+   }
+   @-o-keyframes animDot {
+      0% { left: 100px; }
+      100% { left: -900px; }
+   }
+   @keyframes animDot {
+      0% { left: 100px; }
+      100% { left: -900px; }
    }
  }
 
@@ -332,6 +352,16 @@ Screen - Game
       left: 60px;
    }
  }
+
+ @media screen and (max-width: 768px) and (min-width: 480px) {
+
+      #player
+      {
+         left: 110px;
+      }
+   
+ }
+
 
 .bird
 {
