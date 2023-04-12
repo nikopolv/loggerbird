@@ -485,6 +485,27 @@ const canvas = document.querySelector('#canvas');
 
 const ctx = canvas.getContext('2d');
 
+function shareToLinkedIn() {
+   // Set the URL you want to share (replace 'https://example.com' with your website's URL)
+   const urlToShare = encodeURIComponent('https://logmore.com/flappy-logger');
+   
+   // Set the title you want to share (replace 'My Website Title' with your website's title)
+   const titleToShare = encodeURIComponent('Logmore Flying temperature logger game');
+
+   // Set the summary you want to share (replace 'This is a summary of my website.' with your website's summary)
+   const summaryToShare = encodeURIComponent('Full transparency for sensitive and cold chain shipments');
+
+   // Open a new window with the LinkedIn share dialog
+   window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${urlToShare}&title=${titleToShare}&summary=${summaryToShare}`, '_blank', 'width=520,height=570');
+}
+
+function shareToFacebook() {
+   // Set the URL you want to share (replace 'https://example.com' with your website's URL)
+   const urlToShare = encodeURIComponent('https://logmore.com/flappy-logger');
+   
+   // Open a new window with the Facebook share dialog
+   window.open(`https://www.facebook.com/sharer/sharer.php?u=${urlToShare}`, '_blank', 'width=600,height=400');
+}
 
 function updateHistory()
 {
@@ -551,3 +572,5 @@ var isIncompatible = {
    return (isIncompatible.Android() || isIncompatible.BlackBerry() || isIncompatible.iOS() || isIncompatible.Opera() || isIncompatible.Safari() || isIncompatible.Windows());
    }
 };
+
+
