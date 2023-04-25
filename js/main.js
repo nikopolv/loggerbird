@@ -18,7 +18,7 @@ var flyArea = $("#flyarea").height();
 var score = 0;
 var highscore = 0;
 
-var pipeheight = 90;
+var pipeheight = 110;
 var pipewidth = 52;
 var pipes = new Array();
 
@@ -45,7 +45,7 @@ $(document).ready(function() {
    if(window.location.search == "?debug")
       debugmode = true;
    if(window.location.search == "?easy")
-      pipeheight = 120;
+      pipeheight = 200;
 
    //get the highscore
    var savedscore = getCookie("highscore");
