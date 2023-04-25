@@ -45,7 +45,7 @@ $(document).ready(function() {
    if(window.location.search == "?debug")
       debugmode = true;
    if(window.location.search == "?easy")
-      pipeheight = 200;
+      pipeheight = 120;
 
    //get the highscore
    var savedscore = getCookie("highscore");
